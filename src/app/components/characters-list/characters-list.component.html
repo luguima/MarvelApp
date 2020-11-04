@@ -1,0 +1,12 @@
+<ul class="characters"  *ngIf="characters">
+    <li *ngFor="let character of characters">
+        <div class="card" style="width: 18rem;">
+            <img [src]="formatURL(character)" class="card-img-top">
+            <div class="card-body">
+              <p class="card-text" style="font-size: 16px;">{{character.name}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    </li>
+    
+  </ul>

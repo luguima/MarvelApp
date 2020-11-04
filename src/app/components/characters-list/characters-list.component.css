@@ -1,0 +1,27 @@
+.characters {
+    list-style-type: none;
+    overflow: hidden;
+    font-size: 1.5em;
+    margin-left: 25px;
+  }
+
+
+  .characters li {
+    padding: 10px;
+    float: left;
+  }
+  
+  .characters li a {
+    color: rgba(0, 0, 0, 0.6);
+    transition-duration: 0.5s;
+    transition: color 0.5s;
+  }
+  
+  .characters li a:hover {
+    color: rgba(0, 0, 0, 1);
+    transition: color 0.5s;
+  }
+  
+  .characters li a small {
+    font-size: 0.6em;
+  }
