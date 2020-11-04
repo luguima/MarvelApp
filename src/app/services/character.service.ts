@@ -13,16 +13,19 @@ export class CharacterService {
         private http: HttpClient
     ) { }
 
-    public composeQueryParam(url) {
+    public composeQueryParam(url, offset) {
         const md5 = new Md5();
         var token = md5.appendStr(`1${environment.hash}${environment.apiKey}`).end();
-        console.log(token);
-        var newUrl = `${url}?ts=1&apikey=${environment.apiKey}&hash=${token}`;
-        console.log(newUrl);
+        var newUrl = "";
+        if (offset == 0)
+            newUrl = `${url}?ts=1&apikey=${environment.apiKey}&hash=${token}`;
+        else
+            newUrl = `${url}?offset=${offset}&ts=1&apikey=${environment.apiKey}&hash=${token}`;
+
         return newUrl;
     }
 
-    public getCharacters() {
-        return this.http.get(this.composeQueryParam(this.baseUrl));
+    public getCharacters(offset) {
+        return this.http.get(this.composeQueryParam(this.baseUrl, offset));
     }
 }

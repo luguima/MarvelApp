@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { CharactersListComponent } from './components/characters-list/characters-list.component';
 import { CharactersComponent } from './pages/characters/characters.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreatorsComponent } from './pages/creators/creators.component';
+import { CharacterInfoComponent } from './pages/character-info/character-info.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HeaderComponent,
     CharactersListComponent,
-    CharactersComponent
+    CharactersComponent,
+    CreatorsComponent,
+    CharacterInfoComponent
   ],
   imports: [
     BrowserModule,

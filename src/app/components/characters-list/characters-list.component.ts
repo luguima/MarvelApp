@@ -8,22 +8,37 @@ import { CharacterService } from 'src/app/services/character.service';
 })
 export class CharactersListComponent implements OnInit {
   characters: any = null;
+  pageSize: number = 20;
+  currentPage: number = 0;
+  numberOfCharacters: number = 0;
+  totalPage: number = 0;
 
   constructor(private service: CharacterService,) { }
 
   ngOnInit(): void {
-    this.service.getCharacters().subscribe((data: any) => {
-      console.log(data);
-      this.characters = data.data.results
-    }
-
-    );
+    this.getCharacters();
   }
 
   formatURL(character: any) {
-    var url = `${character.thumbnail.path}/landscape_medium.${character.thumbnail.extension}`;
-    console.log(url);
-    return url;
+    return `${character.thumbnail.path}/landscape_medium.${character.thumbnail.extension}`;
   }
 
+  getCharacters() {
+    this.service.getCharacters(this.currentPage * this.pageSize).subscribe((data: any) => {
+      this.characters = data.data.results;
+      this.totalPage = data.data.total;
+      this.numberOfCharacters = data.data.offset + data.data.limit;
+    }
+    );
+  }
+
+  PreviousPage() {
+    this.currentPage -= 1;
+    this.getCharacters();
+  }
+
+  NextPage() {
+    this.currentPage += 1;
+    this.getCharacters();
+  }
 }

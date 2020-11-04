@@ -1,12 +1,24 @@
-<ul class="characters"  *ngIf="characters">
-    <li *ngFor="let character of characters">
-        <div class="card" style="width: 18rem;">
-            <img [src]="formatURL(character)" class="card-img-top">
-            <div class="card-body">
-              <p class="card-text" style="font-size: 16px;">{{character.name}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="characters"  *ngIf="characters">
+      <li *ngFor="let character of characters">
+          <div class="card" style="width: 18rem;">
+              <img [src]="formatURL(character)" class="card-img-top">
+              <div class="card-body">
+                <p class="card-text" style="font-size: 14px;">{{character.name}}</p>
+                <a href="#" class="btn btn-primary">More details</a>
+              </div>
             </div>
-          </div>
-    </li>
-    
-  </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 left">
+    <button (click)="PreviousPage()" class="btn btn-primary">Previous</button>
+  </div>
+  <div class="col-md-6 right">
+    <button (click)="NextPage()" class="btn btn-primary">Next</button>
+  </div>
+</div>
+
