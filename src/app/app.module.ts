@@ -9,7 +9,6 @@ import { CharactersListComponent } from './components/characters-list/characters
 import { CharactersComponent } from './pages/characters/characters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatorsComponent } from './pages/creators/creators.component';
-import { CharacterInfoComponent } from './pages/character-info/character-info.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
@@ -17,10 +16,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    CharactersListComponent,
     CharactersComponent,
     CreatorsComponent,
-    CharacterInfoComponent
+    CharactersListComponent
   ],
   imports: [
     BrowserModule,

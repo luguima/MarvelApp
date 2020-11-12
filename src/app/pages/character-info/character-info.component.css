@@ -1,0 +1,12 @@
+.subtitle{
+    border-bottom: solid black 1px;
+}
+
+.text-subtitle{
+    font-size: large;
+    font-weight: 700;
+}
+
+.card{
+    margin-bottom: 5px;
+}

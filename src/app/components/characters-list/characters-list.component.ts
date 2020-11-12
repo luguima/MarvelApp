@@ -13,11 +13,11 @@ export class CharactersListComponent implements OnInit {
   currentPage: number = 0;
   numberOfCharacters: number = 0;
   totalPage: number = 0;
-  @Input() search: string = null;
 
   constructor(private service: CharacterService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    console.log("teste1 ");
     this.getCharacters();
   }
 
@@ -30,12 +30,8 @@ export class CharactersListComponent implements OnInit {
     this.spinner.show();
     this.service.getCharacters(this.currentPage * this.pageSize).subscribe((data: any) => {
       this.characters = data.data.results;
-
       this.totalPage = data.data.total;
-      console.log(this.totalPage);
-
       this.numberOfCharacters = data.data.offset + data.data.limit;
-      console.log(this.numberOfCharacters);
       this.spinner.hide();
     }
     );
