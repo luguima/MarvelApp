@@ -9,15 +9,12 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class CharactersListComponent implements OnInit {
   characters: any = null;
-  pageSize: number = 20;
-  currentPage: number = 0;
-  numberOfCharacters: number = 0;
-  totalPage: number = 0;
+  currentPage: number = 1;
+  totalItems: number = 0;
 
   constructor(private service: CharacterService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    console.log("teste1 ");
     this.getCharacters();
   }
 
@@ -28,22 +25,18 @@ export class CharactersListComponent implements OnInit {
   getCharacters() {
     console.log("teste");
     this.spinner.show();
-    this.service.getCharacters(this.currentPage * this.pageSize).subscribe((data: any) => {
+    this.service.getCharacters((this.currentPage * 20) - 20).subscribe((data: any) => {
       this.characters = data.data.results;
-      this.totalPage = data.data.total;
-      this.numberOfCharacters = data.data.offset + data.data.limit;
+      this.totalItems = data.data.total;
       this.spinner.hide();
     }
     );
   }
 
-  PreviousPage() {
-    this.currentPage -= 1;
-    this.getCharacters();
-  }
-
-  NextPage() {
-    this.currentPage += 1;
+  pageChanged(event) {
+    console.log("teste " + event);
+    console.log("teste " + this.currentPage);
+    this.currentPage = event;
     this.getCharacters();
   }
 }

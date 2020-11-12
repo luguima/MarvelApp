@@ -10,6 +10,7 @@ import { CharactersComponent } from './pages/characters/characters.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatorsComponent } from './pages/creators/creators.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HeaderComponent,
     CharactersComponent,
     CreatorsComponent,
-    CharactersListComponent
+    CharactersListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,
+    NgxPaginationModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
